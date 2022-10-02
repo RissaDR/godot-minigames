@@ -7,7 +7,7 @@ A small collection of some 2D minigames I made in the Godot gaming engine. The g
 
 Published *16th December, 2019.*
 
-![Bakebake Buster image preview](https://github.com/RissaDR/godot-minigames/tree/main/image_previews/BakebakeBuster.png?raw=true)
+![Bakebake Buster image preview](image_previews/BakebakeBuster.png?raw=true)
 
 Can be played on [itch.io](https://kateten.itch.io/bakebakebuster) or my [GitHub pages.](https://rissadr.github.io/projects/games/bakebakebuster.html)
 
@@ -18,7 +18,7 @@ Published *21st December, 2019.*
 
 A Flappy Bird clone/spin-off.
 
-![Pegasus Run image preview](https://github.com/RissaDR/godot-minigames/tree/main/image_previews/PegasusRun.png?raw=true)
+![Pegasus Run image preview](image_previews/PegasusRun.png?raw=true)
 
 Can be played on [itch.io](https://kateten.itch.io/chromekomapegasus) or my [GitHub pages.](https://rissadr.github.io/projects/games/chromekomapegasus.html)
 
@@ -29,6 +29,6 @@ Published *23rd December, 2019.*
 
 Based on whack-a-mole.
 
-![Whack-A-Mineta image preview](https://github.com/RissaDR/godot-minigames/tree/main/image_previews/WhackAMineta.png?raw=true)
+![Whack-A-Mineta image preview](image_previews/WhackAMineta.png?raw=true)
 
 Can be played on [itch.io](https://kateten.itch.io/whackamineta) or my [GitHub pages.](https://rissadr.github.io/projects/games/whackamineta.html)
