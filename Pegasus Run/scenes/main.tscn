@@ -1,0 +1,140 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://scripts/main.gd" type="Script" id=1]
+[ext_resource path="res://assets/8bitoperator1.tres" type="DynamicFont" id=2]
+[ext_resource path="res://assets/bg/background.png" type="Texture" id=3]
+[ext_resource path="res://assets/bg/buildings2.png" type="Texture" id=4]
+[ext_resource path="res://scripts/Middleground.gd" type="Script" id=5]
+[ext_resource path="res://assets/bg/floordoubledelete.png" type="Texture" id=6]
+[ext_resource path="res://scripts/Floor.gd" type="Script" id=7]
+[ext_resource path="res://scripts/MikoSaki.gd" type="Script" id=8]
+[ext_resource path="res://assets/mikosaki/mikosaki0003.png" type="Texture" id=9]
+[ext_resource path="res://assets/mikosaki/mikosaki0000.png" type="Texture" id=10]
+[ext_resource path="res://assets/mikosaki/mikosaki0001.png" type="Texture" id=11]
+[ext_resource path="res://assets/mikosaki/mikosaki0002.png" type="Texture" id=12]
+[ext_resource path="res://assets/mikosaki/mikosaki0004.png" type="Texture" id=13]
+[ext_resource path="res://assets/mikosaki/mikosaki0005.png" type="Texture" id=14]
+[ext_resource path="res://assets/mikosaki/mikosaki_ohnoes.png" type="Texture" id=15]
+[ext_resource path="res://scripts/TextureButton.gd" type="Script" id=16]
+[ext_resource path="res://assets/continue.png" type="Texture" id=17]
+[ext_resource path="res://assets/sfx/doot.ogg" type="AudioStream" id=18]
+[ext_resource path="res://scripts/sfx.gd" type="Script" id=19]
+[ext_resource path="res://scripts/milestone_sfx.gd" type="Script" id=20]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 9 ), ExtResource( 13 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "run",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 15 ) ],
+"loop": true,
+"name": "ohnoes",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 16, 48 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 544, 32 )
+
+[node name="Node" type="Node"]
+script = ExtResource( 1 )
+
+[node name="Score" type="Label" parent="."]
+margin_left = 960.0
+margin_right = 1088.0
+margin_bottom = 48.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "100"
+align = 2
+
+[node name="Background" type="Sprite" parent="."]
+modulate = Color( 0.211765, 0.211765, 0.211765, 1 )
+position = Vector2( 544, 192 )
+scale = Vector2( 2, 2 )
+z_index = -1000
+z_as_relative = false
+texture = ExtResource( 3 )
+
+[node name="Middleground" type="Sprite" parent="."]
+position = Vector2( -296, 192 )
+scale = Vector2( 2, 2 )
+z_index = -1000
+z_as_relative = false
+texture = ExtResource( 4 )
+script = ExtResource( 5 )
+
+[node name="Floor" type="Sprite" parent="."]
+position = Vector2( 1086, 352 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+script = ExtResource( 7 )
+
+[node name="MikoSaki" type="KinematicBody2D" parent="."]
+self_modulate = Color( 1, 0.0117647, 0.0117647, 1 )
+position = Vector2( 192, 118.74 )
+z_index = 100
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="MikoSaki"]
+frames = SubResource( 1 )
+animation = "jump"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MikoSaki"]
+scale = Vector2( 1.75, 1.75 )
+shape = SubResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="MikoSaki"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MikoSaki/Area2D"]
+scale = Vector2( 2, 2 )
+polygon = PoolVector2Array( -6.57899, 36.3189, -7.25047, 35.7264, -7.68497, 35.2129, -8.19846, 33.4355, -8.27745, 30.7495, -8.83044, 30.078, -8.75143, 28.3006, -8.23795, 28.3401, -4.09055, 25.2197, -3.85355, 24.7457, -4.80153, 23.5607, -5.94701, 23.5607, -7.76396, 22.1782, -8.83044, 22.2177, -9.18593, 21.8228, -9.14643, 21.2303, -9.62041, 20.7958, -9.69942, 19.6898, -8.75143, 18.3073, -8.94893, 17.6358, -9.77841, 18.3863, -10.2919, 18.6628, -10.2919, 19.2158, -10.6869, 19.8478, -11.2794, 19.0973, -11.2794, 18.1493, -10.2129, 16.6879, -10.2129, 16.5299, -10.6474, 15.8189, -11.3584, 16.2139, -11.7534, 16.9249, -13.6098, 16.7669, -14.0443, 17.2409, -15.1503, 17.3594, -16.1773, 16.3719, -16.3353, 15.8189, -15.7033, 15.3449, -13.2543, 15.2264, -12.8593, 14.7129, -10.1734, 14.7524, -5.25507, 9.62338, -5.73138, 9.20662, -3.70706, 5.33662, -2.75445, 4.14584, -1.02783, 2.35969, -1.92091, 1.04984, -5.79091, -1.51031, -5.79091, -2.40339, -6.17084, -4.89984, -6.76458, -5.4276, -6.76458, -6.68105, -6.17084, -6.68105, -6.43472, -8.79211, -3.7959, -11.5629, -5.31322, -13.2781, -5.90696, -14.4656, -5.77502, -15.851, -5.04934, -16.7086, -7.02846, -16.5766, -10.6568, -15.2572, -11.3166, -15.9829, -11.2506, -17.7641, -9.4034, -19.3474, -9.33743, -21.2606, -10.25, -22.6398, -10.8141, -23.8933, -10.6261, -27.0269, -11.2528, -27.2776, -11.1901, -29.1577, -9.05927, -29.1577, -3.23076, -26.4002, -1.53861, -26.4002, -1.66396, -28.2176, -0.222504, -32.1033, 2.03369, -30.1605, 4.22722, -25.8361, 4.85394, -24.3946, 5.22997, -22.1385, 5.29265, -18.3155, 4.72859, -17.8141, 5.41798, -16.874, 5.29265, -14.8058, 4.72859, -14.1164, 4.85394, -13.1763, 6.67143, -13.3017, 12.3119, -14.4925, 12.3119, -15.3699, 14.4428, -17.5007, 16.3229, -17.1874, 16.699, -17.7514, 17.263, -17.7514, 25.4104, -25.8361, 29.8601, -21.7624, 28.6693, -21.3237, 28.2306, -20.697, 27.4159, -20.321, 26.0371, -19.2555, 25.3477, -18.6915, 24.533, -18.1901, 23.9063, -17.8141, 23.0288, -17.1247, 22.2768, -16.7487, 21.5874, -16.2473, 20.5846, -15.6832, 18.2031, -13.8031, 17.6391, -12.675, 17.2003, -13.427, 16.4483, -12.7376, 15.8842, -13.3017, 15.0695, -12.863, 13.3147, -12.1736, 11.7479, -11.6095, 10.4944, -11.3589, 9.49168, -10.6068, 6.92212, -10.1681, 8.11288, -9.29067, 11.7095, -9.30114, 13.8287, -7.78084, 13.7366, -6.85944, 13.1377, -5.66163, 10.7881, -3.68063, 10.2905, -3.09064, 10.2905, -1.1775, 9.30093, 0.405792, 7.71764, 2.25298, 12.3356, 8.32227, 12.0717, 9.31183, 11.478, 10.1035, 13.2592, 12.3465, 13.721, 13.402, 14.2487, 14.4575, 14.7765, 15.5131, 15.2383, 16.1728, 19.8562, 16.2387, 20.1861, 16.7665, 19.3285, 17.3602, 17.6132, 17.822, 16.3598, 18.2838, 15.7001, 18.8776, 16.8876, 20.4609, 16.2938, 21.3845, 14.2487, 19.2074, 13.655, 17.5582, 12.7314, 16.5026, 12.2696, 15.7769, 10.8183, 13.6659, 8.77316, 11.6208, 8.57526, 10.6972, 8.11346, 10.8292, 7.78361, 11.4889, 7.45375, 12.0826, 8.77316, 14.8534, 10.3565, 16.7665, 12.7974, 19.9331, 14.4466, 22.1101, 14.1828, 22.7698, 12.4199, 23.674, 11.2458, 23.6229, 10.6843, 24.2865, 8.18301, 24.2355, 8.23407, 25.0522, 9.51024, 26.3794, 7.92778, 27.2472, 6.8558, 27.4004, 6.03905, 27.8598, 4.91602, 27.7067, 4.15031, 28.3192, 3.38461, 28.2682, 2.92519, 28.6765, 0.321808, 28.7276, -0.239708, 29.187, -1.20959, 29.3401, -1.87321, 28.6765, -5.1402, 30.7695, -5.24229, 33.3218, -5.70171, 33.8833, -5.75276, 35.5679 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 320, 176 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 224, 176 )
+shape = SubResource( 3 )
+
+[node name="TextureButton" type="TextureButton" parent="."]
+margin_left = 512.0
+margin_top = 160.0
+margin_right = 576.0
+margin_bottom = 224.0
+script = ExtResource( 16 )
+
+[node name="Label" type="Label" parent="TextureButton"]
+margin_left = -64.0
+margin_top = -48.0
+margin_right = 128.0
+margin_bottom = 16.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "GAME OVER"
+align = 1
+
+[node name="Sprite" type="Sprite" parent="TextureButton"]
+position = Vector2( 32, 32 )
+texture = ExtResource( 17 )
+
+[node name="sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 18 )
+script = ExtResource( 19 )
+
+[node name="milestone_sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 18 )
+script = ExtResource( 20 )

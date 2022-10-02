@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/nutmyd.ogg-e38ebfa77a362f84ec6b2fd9d94ea5bb.oggstr"
+
+[deps]
+
+source_file="res://assets/sfx/nutmyd.ogg"
+dest_files=[ "res://.import/nutmyd.ogg-e38ebfa77a362f84ec6b2fd9d94ea5bb.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

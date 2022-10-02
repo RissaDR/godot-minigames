@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/haniwa.gd" type="Script" id=1]
+[ext_resource path="res://assets/obstacles/haniwa.png" type="Texture" id=2]
+
+[node name="Haniwa1" type="KinematicBody2D"]
+position = Vector2( 528, 272 )
+z_index = -50
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 7.62939e-006, 7.62939e-006 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( -1.43051e-006, 1.43051e-006 )
+scale = Vector2( 3.2, 3.2 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+scale = Vector2( 2, 2 )
+polygon = PoolVector2Array( -2.81079, -10.2651, 2.88501, -10.2651, 7.61359, -5.7515, 7.45239, -3.27975, 9.44049, -2.36627, 10.7301, -4.19321, 5.24927, -8.8143, 6.64636, -10.6413, 8.41956, -10.48, 9.38678, -9.56659, 10.6227, -9.56659, 14.5989, -5.48282, 14.4377, -1.50653, 13.6317, -0.485596, 13.5243, 0.857758, 12.6108, 1.66376, 11.3749, 2.46976, 10.3002, 2.5235, 9.60168, 3.43698, 8.52704, 4.24298, 8.58075, 8.64914, 7.45239, 9.45514, 7.45239, 11.6045, 6.48517, 12.4105, 6.48517, 13.6464, 5.51794, 14.4524, 4.33582, 15.7957, -3.61676, 15.6345, -5.55115, 13.5926, -5.55115, 12.4105, -6.51837, 11.7119, -6.41089, 9.50888, -7.4856, 8.48795, -8.50653, 7.68192, -9.52747, 8.64914, -11.6768, 8.5954, -12.644, 7.25204, -13.5575, 6.55353, -13.6112, 5.42511, -14.5247, 4.45792, -14.4172, 0.642822, -13.665, -0.485596, -13.6112, -1.61401, -12.4291, -2.36627, -9.41998, -2.42001, -8.56024, -3.44095, -7.7005, -4.24695, -7.53931, -5.42908, -6.41089, -6.5575 )

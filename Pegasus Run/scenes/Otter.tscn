@@ -1,0 +1,49 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://scripts/otter.gd" type="Script" id=1]
+[ext_resource path="res://assets/spiritflame/spiritflame0000.png" type="Texture" id=2]
+[ext_resource path="res://assets/spiritflame/spiritflame0001.png" type="Texture" id=3]
+[ext_resource path="res://assets/spiritflame/spiritflame0002.png" type="Texture" id=4]
+[ext_resource path="res://assets/spiritflame/spiritflame0003.png" type="Texture" id=5]
+[ext_resource path="res://assets/spiritflame/spiritflame0004.png" type="Texture" id=6]
+[ext_resource path="res://assets/spiritflame/spiritflame0005.png" type="Texture" id=7]
+[ext_resource path="res://assets/spiritflame/spiritflame0006.png" type="Texture" id=8]
+[ext_resource path="res://assets/spiritflame/spiritflame0007.png" type="Texture" id=9]
+[ext_resource path="res://assets/spiritflame/spiritflame0008.png" type="Texture" id=10]
+[ext_resource path="res://assets/spiritflame/spiritflame0009.png" type="Texture" id=11]
+[ext_resource path="res://assets/obstacles/otter.png" type="Texture" id=12]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "default",
+"speed": 10.0
+} ]
+
+[node name="Otter" type="KinematicBody2D"]
+position = Vector2( 128, 256 )
+z_index = -50
+script = ExtResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 32, -38.7061 )
+scale = Vector2( 2, 2 )
+frames = SubResource( 1 )
+playing = true
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 2.86102e-006, -7.62939e-006 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 12 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 9.53674e-007, -4.76837e-006 )
+scale = Vector2( 3.2, 3.2 )
+z_index = -50
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+scale = Vector2( 2, 2 )
+polygon = PoolVector2Array( -11.5694, -10.4354, -7.48569, -10.5429, -7.48569, -9.68315, -6.57221, -8.33981, -5.22888, -9.52194, -4.47661, -9.52194, -3.45567, -10.4354, 3.52966, -10.5966, 4.44315, -9.46822, 5.24915, -9.46822, 6.48502, -8.50101, 7.50595, -9.52194, 7.55968, -10.328, 11.6971, -10.4892, 12.4494, -9.30702, 12.4494, -6.40541, 11.4285, -5.4382, 10.4613, -4.6322, 10.4613, -3.1814, 11.6971, -2.64407, 11.4285, -1.30074, 12.7181, -0.333527, 12.6106, 5.36221, 11.4822, 6.4906, 11.4822, 7.45782, 10.515, 8.58621, 9.54782, 9.55341, 7.39848, 9.55341, 6.37755, 10.5743, -6.41101, 10.7356, -7.27075, 9.60715, -9.31262, 9.44595, -10.5485, 8.63995, -11.247, 7.67276, -11.3545, 6.43689, -12.4292, 5.25476, -12.6441, -0.602203, -11.4082, -1.4082, -11.5157, -2.16046, -10.656, -3.61127, -10.5485, -4.41727, -11.462, -5.33075, -12.6441, -6.78154, -12.5904, -9.62941 )
