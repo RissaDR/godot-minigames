@@ -1,0 +1,15 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+path="res://.import/hitoshiClickMask.png-e39d02418bb0ad394733d590c9943c6b.res"
+
+[deps]
+
+source_file="res://assets/hitoshi/hitoshiClickMask.png"
+dest_files=[ "res://.import/hitoshiClickMask.png-e39d02418bb0ad394733d590c9943c6b.res" ]
+
+[params]
+
+create_from=0
+threshold=0.5

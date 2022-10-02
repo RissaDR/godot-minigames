@@ -1,0 +1,15 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+path="res://.import/minetaClickMask.png-46584cc647b78cc8b4c8d892788f5d83.res"
+
+[deps]
+
+source_file="res://assets/mineta/minetaClickMask.png"
+dest_files=[ "res://.import/minetaClickMask.png-46584cc647b78cc8b4c8d892788f5d83.res" ]
+
+[params]
+
+create_from=0
+threshold=0.5

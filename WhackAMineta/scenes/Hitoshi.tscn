@@ -1,0 +1,54 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://scripts/Hitoshi.gd" type="Script" id=1]
+[ext_resource path="res://assets/hitoshi/hitoshiClickMask.png" type="BitMap" id=2]
+[ext_resource path="res://assets/hitoshi/hitoshiblink0000.png" type="Texture" id=3]
+[ext_resource path="res://assets/hitoshi/hitoshiblink0001.png" type="Texture" id=4]
+[ext_resource path="res://assets/hitoshi/hitoshiblink0002.png" type="Texture" id=5]
+[ext_resource path="res://assets/hitoshi/hitoshiblink0003.png" type="Texture" id=6]
+[ext_resource path="res://assets/hitoshi/hitoshiblink0004.png" type="Texture" id=7]
+[ext_resource path="res://assets/hitoshi/hitoshiblink0005.png" type="Texture" id=8]
+[ext_resource path="res://assets/explode/explodo0000.png" type="Texture" id=9]
+[ext_resource path="res://assets/explode/explodo0001.png" type="Texture" id=10]
+[ext_resource path="res://assets/explode/explodo0002.png" type="Texture" id=11]
+[ext_resource path="res://assets/explode/explodo0003.png" type="Texture" id=12]
+[ext_resource path="res://assets/explode/explodo0004.png" type="Texture" id=13]
+[ext_resource path="res://assets/explode/explodo0005.png" type="Texture" id=14]
+[ext_resource path="res://assets/explode/explodo0006.png" type="Texture" id=15]
+[ext_resource path="res://assets/explode/explodo0007.png" type="Texture" id=16]
+[ext_resource path="res://assets/hitoshi/hitoshidead.png" type="Texture" id=17]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "blink",
+"speed": 3.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "explode",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 17 ) ],
+"loop": true,
+"name": "dead",
+"speed": 5.0
+} ]
+
+[node name="Hitoshi" type="Sprite"]
+position = Vector2( 256, 192 )
+z_as_relative = false
+script = ExtResource( 1 )
+
+[node name="TextureButton" type="TextureButton" parent="."]
+margin_left = -32.0
+margin_top = -64.0
+margin_right = 32.0
+margin_bottom = 64.0
+texture_click_mask = ExtResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "dead"
+playing = true
