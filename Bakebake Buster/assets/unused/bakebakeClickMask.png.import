@@ -1,0 +1,15 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+path="res://.import/bakebakeClickMask.png-0947089b27437791c5796699129c6da2.res"
+
+[deps]
+
+source_file="res://assets/unused/bakebakeClickMask.png"
+dest_files=[ "res://.import/bakebakeClickMask.png-0947089b27437791c5796699129c6da2.res" ]
+
+[params]
+
+create_from=0
+threshold=0.5

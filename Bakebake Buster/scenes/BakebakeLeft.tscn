@@ -1,0 +1,99 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://scripts/Bakebake.gd" type="Script" id=1]
+[ext_resource path="res://assets/bakebake/serisplode/serisplode0000.png" type="Texture" id=2]
+[ext_resource path="res://assets/bakebake/serisplode/serisplode0001.png" type="Texture" id=3]
+[ext_resource path="res://assets/bakebake/serisplode/serisplode0002.png" type="Texture" id=4]
+[ext_resource path="res://assets/bakebake/serisplode/serisplode0003.png" type="Texture" id=5]
+[ext_resource path="res://assets/bakebake/serisplode/serisplode0004.png" type="Texture" id=6]
+[ext_resource path="res://assets/bakebake/serisplode/serisplode0005.png" type="Texture" id=7]
+[ext_resource path="res://assets/bakebake/serisplode/serisplode0006.png" type="Texture" id=8]
+[ext_resource path="res://assets/bakebake/serisplode/serisplode0007.png" type="Texture" id=9]
+[ext_resource path="res://assets/bakebake/serisplode/serisplode0008.png" type="Texture" id=10]
+[ext_resource path="res://assets/bakebake/serisplode/serisplode0009.png" type="Texture" id=11]
+[ext_resource path="res://assets/bakebake/serisplode/serisplode0010.png" type="Texture" id=12]
+[ext_resource path="res://assets/bakebake/serisplode/serisplode0011.png" type="Texture" id=13]
+[ext_resource path="res://assets/bakebake/bakebakeblinkLeft/bakebakeblinkLeft0000.png" type="Texture" id=14]
+[ext_resource path="res://assets/bakebake/bakebakeblinkLeft/bakebakeblinkLeft0001.png" type="Texture" id=15]
+[ext_resource path="res://assets/bakebake/bakebakeblinkLeft/bakebakeblinkLeft0002.png" type="Texture" id=16]
+[ext_resource path="res://assets/bakebake/bakebakeblinkLeft/bakebakeblinkLeft0003.png" type="Texture" id=17]
+[ext_resource path="res://assets/bakebake/bakebakeblinkLeft/bakebakeblinkLeft0004.png" type="Texture" id=18]
+[ext_resource path="res://assets/bakebake/bakebakeblinkLeft/bakebakeblinkLeft0005.png" type="Texture" id=19]
+[ext_resource path="res://assets/bakebake/clickmask/bakebakeClickMaskRight.png" type="BitMap" id=20]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "explode",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ) ],
+"loop": true,
+"name": "bakebake",
+"speed": 5.0
+} ]
+
+[node name="Bakebake" type="KinematicBody2D"]
+
+position = Vector2( 256, 128 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Material", "Pause", "Transform", "Visibility" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
+
+frames = SubResource( 1 )
+animation = "bakebake"
+frame = 5
+playing = true
+
+[node name="TextureButton" type="TextureButton" parent="." index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -32.0
+margin_top = -32.0
+margin_right = 32.0
+margin_bottom = 32.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_click_mask = ExtResource( 20 )
+_sections_unfolded = [ "Textures" ]
+
+[node name="Area2D" type="Area2D" parent="." index="2"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" index="0"]
+
+position = Vector2( -3.8147e-006, -3.8147e-006 )
+scale = Vector2( 4, 4 )
+build_mode = 0
+polygon = PoolVector2Array( 1.70349, -7.45159, 3.5882, -6.49473, 5.3741, -5.21397, 5.92027, -3.73608, 5.79176, -1.8084, 4.98856, 0.6012, 4.28175, 2.56101, 4.44238, 3.20357, 5.43835, 3.46059, 6.49858, 2.7859, 7.59093, 1.08312, 7.36604, 3.20357, 6.20943, 5.45253, 4.18536, 6.93042, 1.74364, 7.86213, -1.14789, 7.83, -4.32856, 6.41637, -5.80645, 5.25976, -7.18795, 3.0108, -7.66987, 0.151409, -7.38072, -2.64373, -5.74219, -5.37461, -4.10366, -6.82037, -1.37003, -7.68355 )
+
+

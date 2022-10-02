@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/go_go_reigen_intro.ogg-11b69fc0dfa7a1bfc06d8094449a7ce7.oggstr"
+
+[deps]
+
+source_file="res://assets/music/go_go_reigen_intro.ogg"
+dest_files=[ "res://.import/go_go_reigen_intro.ogg-11b69fc0dfa7a1bfc06d8094449a7ce7.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

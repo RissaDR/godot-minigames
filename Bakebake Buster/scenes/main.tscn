@@ -1,0 +1,151 @@
+[gd_scene load_steps=38 format=2]
+
+[ext_resource path="res://scripts/main.gd" type="Script" id=1]
+[ext_resource path="res://assets/8bitoperator.tres" type="DynamicFont" id=2]
+[ext_resource path="res://scripts/DeathText.gd" type="Script" id=3]
+[ext_resource path="res://scripts/Reigen.gd" type="Script" id=4]
+[ext_resource path="res://assets/reigen/reigensweat/reigensweat0000.png" type="Texture" id=5]
+[ext_resource path="res://assets/reigen/reigensweat/reigensweat0001.png" type="Texture" id=6]
+[ext_resource path="res://assets/reigen/reigensweat/reigensweat0002.png" type="Texture" id=7]
+[ext_resource path="res://assets/reigen/reigensweat/reigensweat0003.png" type="Texture" id=8]
+[ext_resource path="res://assets/reigen/reigensweat/reigensweat0004.png" type="Texture" id=9]
+[ext_resource path="res://assets/reigen/reigensweat/reigensweat0005.png" type="Texture" id=10]
+[ext_resource path="res://assets/reigen/reigensweat/reigensweat0006.png" type="Texture" id=11]
+[ext_resource path="res://assets/reigen/reigensweat/reigensweat0007.png" type="Texture" id=12]
+[ext_resource path="res://assets/reigen/reigensweat/reigensweat0008.png" type="Texture" id=13]
+[ext_resource path="res://assets/reigen/reigensweat/reigensweat0009.png" type="Texture" id=14]
+[ext_resource path="res://assets/reigen/reigensweat/reigensweat0010.png" type="Texture" id=15]
+[ext_resource path="res://assets/reigen/reigensweat/reigensweat0011.png" type="Texture" id=16]
+[ext_resource path="res://assets/reigen/reigensweat/reigensweat0012.png" type="Texture" id=17]
+[ext_resource path="res://assets/reigen/reigensweat/reigensweat0013.png" type="Texture" id=18]
+[ext_resource path="res://assets/reigen/reigenWAA/reigenWAA0000.png" type="Texture" id=19]
+[ext_resource path="res://assets/reigen/reigenWAA/reigenWAA0001.png" type="Texture" id=20]
+[ext_resource path="res://assets/reigen/reigenWAA/reigenWAA0002.png" type="Texture" id=21]
+[ext_resource path="res://assets/reigen/reigenWAA/reigenWAA0003.png" type="Texture" id=22]
+[ext_resource path="res://assets/reigen/reigenWAA/reigenWAA0004.png" type="Texture" id=23]
+[ext_resource path="res://assets/reigen/reigenWAA/reigenWAA0005.png" type="Texture" id=24]
+[ext_resource path="res://assets/reigen/reigenWAA/reigenWAA0006.png" type="Texture" id=25]
+[ext_resource path="res://assets/reigen/reigenWAA/reigenWAA0007.png" type="Texture" id=26]
+[ext_resource path="res://assets/reigen/reigenWAA/reigenWAA0008.png" type="Texture" id=27]
+[ext_resource path="res://assets/reigen/reigenWAA/reigenWAA0009.png" type="Texture" id=28]
+[ext_resource path="res://assets/reigen/reigenWAA/reigenWAA0010.png" type="Texture" id=29]
+[ext_resource path="res://assets/reigen/reigenWAA/reigenWAA0011.png" type="Texture" id=30]
+[ext_resource path="res://assets/reigen/reigenWAA/reigenWAA0012.png" type="Texture" id=31]
+[ext_resource path="res://assets/reigen/reigenWAA/reigenWAA0013.png" type="Texture" id=32]
+[ext_resource path="res://assets/music/go_go_reigen_intro.ogg" type="AudioStream" id=33]
+[ext_resource path="res://scenes/music.gd" type="Script" id=34]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ) ],
+"loop": true,
+"name": "sweat",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ) ],
+"loop": true,
+"name": "WAA",
+"speed": 5.0
+} ]
+
+[sub_resource type="Curve2D" id=2]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 320, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 640, 0, 0, 0, 0, 320, 640 )
+}
+
+[sub_resource type="Curve2D" id=3]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 320, 0, 0, 0, 0, 0, 640, 0, 0, 0, 0, 0, 640, 640, 0, 0, 0, 0, 320, 640 )
+}
+
+[node name="Control" type="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -320.0
+margin_top = -320.0
+margin_right = 320.0
+margin_bottom = 320.0
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource( 1 )
+
+[node name="TitleOnTop" type="Sprite" parent="Node"]
+position = Vector2( 256, 512 )
+z_index = 100
+
+[node name="Title" type="Label" parent="Node/TitleOnTop"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "BAKEBAKE BUSTER"
+align = 1
+
+[node name="DeathOnTop" type="Sprite" parent="Node"]
+position = Vector2( 256, 64 )
+z_index = 100
+
+[node name="ReigenDied" type="Label" parent="Node/DeathOnTop"]
+margin_left = -64.0
+margin_right = 192.0
+margin_bottom = 60.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Reigen died.
+"
+align = 1
+script = ExtResource( 3 )
+
+[node name="ScoreOnTop" type="Sprite" parent="Node"]
+position = Vector2( 288, 480 )
+z_index = 100
+
+[node name="Score" type="Label" parent="Node/ScoreOnTop"]
+margin_right = 64.0
+margin_bottom = 32.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_as_outline = 0
+align = 1
+valign = 1
+
+[node name="Reigen" type="KinematicBody2D" parent="Node"]
+position = Vector2( 320, 320 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Node/Reigen"]
+frames = SubResource( 1 )
+animation = "sweat"
+
+[node name="Hitbox" type="Area2D" parent="Node/Reigen"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node/Reigen/Hitbox"]
+polygon = PoolVector2Array( 0.547333, 15.9346, -4.64841, 10.8333, -7.48248, 3.74817, -5.02631, 1.38644, -2.19226, 1.8588, 0.263916, 4.78729, 3.57031, 1.8588, 7.16013, 1.57538, 9.61627, 3.84262, 6.12097, 10.3609 )
+
+[node name="PersonalSpace" type="Area2D" parent="Node/Reigen"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node/Reigen/PersonalSpace"]
+polygon = PoolVector2Array( -128, -128, 128, -128, 128, 128, -128, 128, -128, 32, 32, 32, 32, -32, -32, -32, -32, 32, -128, 32 )
+
+[node name="Path2DLeft" type="Path2D" parent="Node"]
+curve = SubResource( 2 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Node/Path2DLeft"]
+position = Vector2( 320, 0 )
+rotation = 3.14159
+
+[node name="Path2DRight" type="Path2D" parent="Node"]
+curve = SubResource( 3 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Node/Path2DRight"]
+position = Vector2( 320, 0 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Node"]
+stream = ExtResource( 33 )
+script = ExtResource( 34 )
